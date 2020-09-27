@@ -284,6 +284,10 @@ add_library(GameNetworkingSockets::GameNetworkingSockets ALIAS GameNetworkingSoc
 add_library(GameNetworkingSockets::shared ALIAS GameNetworkingSockets)
 gamenetworkingsockets_common(GameNetworkingSockets)
 
+set_target_properties(GameNetworkingSockets
+	PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${A1_COOKED_BUILD}")
+
 add_library(GameNetworkingSockets_s STATIC "")
 add_library(GameNetworkingSockets::GameNetworkingSockets_s ALIAS GameNetworkingSockets_s)
 add_library(GameNetworkingSockets::static ALIAS GameNetworkingSockets_s)
