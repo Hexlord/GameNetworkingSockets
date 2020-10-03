@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2008, Valve LLC, All rights reserved. ============
+//========= Copyright ï¿½ 1996-2008, Valve LLC, All rights reserved. ============
 //
 // Purpose:
 //
@@ -58,12 +58,14 @@ typedef unsigned __int32 uintp;
 
 #else // _WIN32
 
+#ifndef A1_STANDARDTYPES_GUARD
 typedef short int16;
 typedef unsigned short uint16;
 typedef int int32;
 typedef unsigned int uint32;
 typedef long long int64;
 typedef unsigned long long uint64;
+#endif
 
 // [u]int64 are actually defined as 'long long' and gcc 64-bit
 // doesn't automatically consider them the same as 'long int'.
@@ -80,6 +82,7 @@ typedef unsigned long long uintp;
 #else
 typedef int intp;
 typedef unsigned int uintp;
+
 #endif
 
 #endif // else _WIN32
