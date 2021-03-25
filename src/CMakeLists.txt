@@ -279,14 +279,14 @@ macro(gamenetworkingsockets_common GNS_TARGET)
 
 endmacro()
 
-add_library(GameNetworkingSockets SHARED "")
-add_library(GameNetworkingSockets::GameNetworkingSockets ALIAS GameNetworkingSockets)
-add_library(GameNetworkingSockets::shared ALIAS GameNetworkingSockets)
-gamenetworkingsockets_common(GameNetworkingSockets)
-
-set_target_properties(GameNetworkingSockets
-	PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY "${A1_COOKED_BUILD}")
+#add_library(GameNetworkingSockets SHARED "")
+#add_library(GameNetworkingSockets::GameNetworkingSockets ALIAS GameNetworkingSockets)
+#add_library(GameNetworkingSockets::shared ALIAS GameNetworkingSockets)
+#gamenetworkingsockets_common(GameNetworkingSockets)
+#
+#set_target_properties(GameNetworkingSockets
+#	PROPERTIES
+#    RUNTIME_OUTPUT_DIRECTORY "${A1_COOKED_BUILD}")
 
 add_library(GameNetworkingSockets_s STATIC "")
 add_library(GameNetworkingSockets::GameNetworkingSockets_s ALIAS GameNetworkingSockets_s)
@@ -301,21 +301,28 @@ if( NOT USE_STEAMWEBRTC ) # HALP
 
 
 # Install rules
-install(
-	TARGETS GameNetworkingSockets GameNetworkingSockets_s
-	EXPORT GameNetworkingSockets
-	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-	)
+#install(
+#	TARGETS GameNetworkingSockets
+#	EXPORT GameNetworkingSockets
+#	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+#	)
+#install(DIRECTORY ../include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/GameNetworkingSockets)
 
-install(DIRECTORY ../include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/GameNetworkingSockets)
-
+#install(
+#    EXPORT GameNetworkingSockets
+#    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/GameNetworkingSockets
+#    NAMESPACE GameNetworkingSockets::
+#    )
 install(
-	EXPORT GameNetworkingSockets
-	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/GameNetworkingSockets
-	NAMESPACE GameNetworkingSockets::
-	)
+    TARGETS GameNetworkingSockets_s
+    EXPORT
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    )
+
 
 include(CMakePackageConfigHelpers)
 
