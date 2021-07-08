@@ -286,7 +286,7 @@ endmacro()
 #
 #set_target_properties(GameNetworkingSockets
 #	PROPERTIES
-#    RUNTIME_OUTPUT_DIRECTORY "${A1_COOKED_BUILD}")
+#    RUNTIME_OUTPUT_DIRECTORY "${SE_COOKED_BUILD}")
 
 add_library(GameNetworkingSockets_s STATIC "")
 add_library(GameNetworkingSockets::GameNetworkingSockets_s ALIAS GameNetworkingSockets_s)
